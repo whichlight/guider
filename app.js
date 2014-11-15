@@ -26,6 +26,8 @@ var path = Math.floor(Math.random()*180);
 var tempPath = 90;
 var bigsize = 0;
 
+var first = 1;
+
 $(document).ready(function(){
     setup();
 });
@@ -77,7 +79,6 @@ var setup = function(){
       meDrone.play();
       compDrone.play();
 
-
   }, false);
 
 
@@ -93,25 +94,25 @@ var setup = function(){
 
 var update = function(){
 
- //background
-  if(touching){
-
-  }else{
-
-  }
-
-  ctx.fillStyle = "rgb("+score*10+","+score*10+","+score*10+")";
+  //background
+  ctx.fillStyle = "rgb("+score*15+","+score*15+","+score*15+")";
   ctx.fillRect(0,0,canvas.width,canvas.height);
 
 
-   $("#instructions").text("PRESS");
+   $("#instructions").text("PRESS & HOLD");
    $("#sub").show();
 
+
+
    if(touching){
+
+
+
      $("#instructions").text("MATCH DIRECTION");
      $("#title").text("");
      $("#sound").text("");
      $("#sub").hide();
+     $("#about").hide();
    }
   //angles match
 
@@ -119,10 +120,10 @@ var update = function(){
   compDrone.setPitch(compDrone.pitch + (Math.abs(angleVal))/6);
   compDrone2.setPitch(compDrone2.pitch + (Math.abs(angleVal))/6);
 
-  if(touching && angleVal < 3){
+  if(touching && angleVal < 5){
   //  ctx.fillStyle = "#FFFFFF";
   //  ctx.fillRect(0,0,canvas.width,canvas.height);
-   $("#instructions").text("STEP FORWARD");
+   $("#instructions").text("PUSH FORWARD");
     drawTriangle(90,"#FFFFFF", 1);
 
     sameDirection = 1;
@@ -198,7 +199,7 @@ var update = function(){
     ctx.fillRect(0,0,canvas.width,canvas.height);
   }
 
-  if(touching){
+  if(touching && first == 0){
 
     if(path > tempPath){
     tempPath += 1;
@@ -207,13 +208,8 @@ var update = function(){
     tempPath -= 1;
     }
 
-    drawTriangle((tempPath + compass)%360,"rgb(255,"+score*10+","+score*10+")", 0);
+    drawTriangle((tempPath + compass)%360,"rgb(255,"+score*15+","+score*15+")", 0);
 
-    meDrone.play();
-    meDrone2.play();
-    compDrone.play();
-    compDrone2.play();
-    bassDrone.play();
 
   } else{
     meDrone.stop();
@@ -225,6 +221,11 @@ var update = function(){
   }
   drawTriangle(90,"#FFFFFF", 0);
 
+  if(first && touching){
+      touching = 0;
+      first = 0;
+      infoAlert();
+  }
 }
 
 
@@ -346,6 +347,9 @@ var checkFeatureSupport = function(){
   }
 }
 
+var deviceAlert = function(){
+
+}
 
 function Drone(freq,vol){
   this.filter;
@@ -463,3 +467,7 @@ Pluck.prototype.stop = function(){
   return false;
 }
 
+var infoAlert = function(){
+  alert("GUIDER by Kawandeep Virdee \n \n Turn up the volume. Hold the screen, match the direction, and push the phone forward.\n \n Watch, listen, and let yourself be guided. Look up. Refresh for a new path.");
+
+}

@@ -2,7 +2,7 @@
   <script language="javascript" src="lib/jquery-1.10.1.min.js"></script>
   <script language="javascript" src="lib/hammer.min.js"></script>
   <style>
-    body {padding: 0; margin: 0; background-color:black; font-family:futura}
+    body {padding: 0; margin: 0; background-color:black; font-family:futura;}
     #content{font-size:50px; position:absolute; color:white; top:0px; color:black;}
     #sound{font-size:50px; position:absolute; color:white; top:10px; text-align:center; width:100%}
     #instructions{font-size:100px; position:absolute; color:white; bottom:0px; text-align:center; width:100%}
@@ -10,15 +10,19 @@
     #title{font-size:250px; position:absolute; color:white; bottom:250px; text-align:center; width:100%}
     #sub{font-size:50px; position:absolute; color:white; bottom:150px; text-align:center; width:100%}
     #score{font-size:200px; position:absolute; color:white; top:0px; text-align:center; width:100%}
+    #bio{font-size:50px; position:absolute; color:white; bottom:0px;
+        text-align:left; width:100%}
+    #about{font-size:100px; position:absolute; color:white; bottom:0px;
+        text-align:right; right:10px; width:100%; z-index:5;}
   </style>
 
 </head>
 
 <body>
   <canvas id="canvas" width="1000" height = "1000"></canvas>
-  <div id="sound">REQUIRES SOUND</div>
+  <div id="sound">(REQUIRES SOUND)</div>
   <div id="title">GUIDER</div>
-  <div id="sub">FOLLOW ME</div>
+  <div id="sub">DIGITAL OUIJA</div>
   <div id="score"></div>
   <div id="instructions"></div>
   <script language="javascript" src="app.js"></script>
