@@ -110,6 +110,7 @@ var update = function(){
    if(touching){
      $("#instructions").text("MATCH DIRECTION");
      $("#title").text("");
+     $("#sound").text("");
      $("#sub").hide();
    }
   //angles match
