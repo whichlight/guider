@@ -195,9 +195,10 @@ var update = function(){
 
 
   if(stepReady == 0 && badStepDelay == 0){
-   $("#instructions").text("+" + score);
+   $("#instructions").text("+");
    bigsize=1;
    if (novis){
+   $("#instructions").text("+" + score);
     ctx.fillStyle = "#000000";
     ctx.fillRect(0,0,canvas.width,canvas.height);
    }
