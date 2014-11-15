@@ -338,6 +338,7 @@ var checkFeatureSupport = function(){
     // some code..
     isDesktop = true;
     console.log('desktop');
+    alert('open this up on your phone \n \n <3 whichlight')
   }
 }
 
