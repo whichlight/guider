@@ -78,6 +78,10 @@ var setup = function(){
       touching = 1;
       meDrone.play();
       compDrone.play();
+    bassDrone.play();
+    meDrone2.play();
+    compDrone2.play();
+
 
   }, false);
 
