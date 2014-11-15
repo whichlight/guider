@@ -156,7 +156,7 @@ var update = function(){
     tempPath = path;
     path= (path + c * (20 + Math.random()*80))%360
 
-    $("#score").text(score);
+   // $("#score").text(score);
 
     var n = new Pluck(basePitch*4);
     var n2 = new Pluck(basePitch*4*1.5);
@@ -183,7 +183,7 @@ var update = function(){
 
 
 
-    $("#score").text(score);
+    //$("#score").text(score);
 
 
     //delay until another step is registered
@@ -195,7 +195,7 @@ var update = function(){
 
 
   if(stepReady == 0 && badStepDelay == 0){
-   $("#instructions").text("+");
+   $("#instructions").text("+" + score);
    bigsize=1;
    if (novis){
     ctx.fillStyle = "#000000";
@@ -239,6 +239,10 @@ var update = function(){
       first = 0;
       infoAlert();
   }
+
+  if(first==0){
+    scoreCircle();
+  }
 }
 
 
@@ -261,6 +265,23 @@ function bigTriangle(scale){
 
   ctx.restore();
 
+}
+
+function scoreCircle(){
+  var deg = (score/(255/15))*360;
+  var rad = deg* (Math.PI/180);
+  ctx.beginPath();
+  ctx.moveTo(canvas.width/2,150);
+  ctx.arc(canvas.width/2,150,50,Math.PI/2-rad/2,rad/2+Math.PI/2);
+  ctx.lineTo(canvas.width/2,150);
+  ctx.fillStyle = "#FFFFFF";
+  ctx.fill();
+
+  ctx.beginPath();
+  ctx.arc(canvas.width/2,150,50,0,2* Math.PI);
+  ctx.lineWidth = 20;
+  ctx.strokeStyle = "#FFFFFF";
+  ctx.stroke();
 }
 
 function drawTriangle(angle, color, fill){
@@ -481,6 +502,6 @@ Pluck.prototype.stop = function(){
 }
 
 var infoAlert = function(){
-  alert("GUIDER by Kawandeep Virdee \n \n Turn up the volume. Hold the screen, match the direction, and push the phone forward.\n \n Watch, listen, and let yourself be guided. Look up. Refresh for a new path.");
+  alert("GUIDER by Kawandeep Virdee \n \n Turn up the volume. Hold the screen, spin yourself to match the direction, and push the phone forward.\n \n Watch, listen, and let yourself be guided. Look up. Refresh for a new path.");
 
 }
