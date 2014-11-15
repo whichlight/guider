@@ -100,7 +100,7 @@ var update = function(){
 
   }
 
-  ctx.fillStyle = "#000000";
+  ctx.fillStyle = "rgb("+score*10+","+score*10+","+score*10+")";
   ctx.fillRect(0,0,canvas.width,canvas.height);
 
 
@@ -184,7 +184,7 @@ var update = function(){
 
 
   if(stepReady == 0 && badStepDelay == 0){
-   $("#instructions").text("+1");
+   $("#instructions").text("+");
    bigsize=1;
   }
 
@@ -205,7 +205,8 @@ var update = function(){
     if (path< tempPath){
     tempPath -= 1;
     }
-    drawTriangle((tempPath + compass)%360,"#FF0000", 0);
+
+    drawTriangle((tempPath + compass)%360,"rgb(255,"+score*10+","+score*10+")", 0);
 
     meDrone.play();
     meDrone2.play();
@@ -241,6 +242,8 @@ function bigTriangle(scale){
   ctx.lineWidth = 30;
   ctx.strokeStyle = "#FFFFFF";
   ctx.stroke();
+
+
   ctx.restore();
 
 }
