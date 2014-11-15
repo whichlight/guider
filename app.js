@@ -240,7 +240,7 @@ var update = function(){
       infoAlert();
   }
 
-  if(first==0){
+  if(first==0 && touching){
     scoreCircle();
   }
 }
@@ -279,7 +279,7 @@ function scoreCircle(){
 
   ctx.beginPath();
   ctx.arc(canvas.width/2,150,50,0,2* Math.PI);
-  ctx.lineWidth = 20;
+  ctx.lineWidth = 10;
   ctx.strokeStyle = "#FFFFFF";
   ctx.stroke();
 }
