@@ -26,6 +26,8 @@ var path = Math.floor(Math.random()*180);
 var tempPath = 90;
 var bigsize = 0;
 
+var novis = 0;
+
 var first = 1;
 
 $(document).ready(function(){
@@ -101,6 +103,10 @@ var update = function(){
   //background
   ctx.fillStyle = "rgb("+score*15+","+score*15+","+score*15+")";
   ctx.fillRect(0,0,canvas.width,canvas.height);
+
+  if(score*15 > 255){
+    novis = 1;
+  }
 
 
    $("#instructions").text("PRESS & HOLD");
@@ -192,6 +198,10 @@ var update = function(){
   if(stepReady == 0 && badStepDelay == 0){
    $("#instructions").text("+");
    bigsize=1;
+   if (novis){
+    ctx.fillStyle = "#000000";
+    ctx.fillRect(0,0,canvas.width,canvas.height);
+   }
   }
 
   bigTriangle(bigsize);
