@@ -268,11 +268,21 @@ function bigTriangle(scale){
 }
 
 function scoreCircle(){
+  /*
+  //pie piece
   var deg = (score/(255/15))*360;
   var rad = deg* (Math.PI/180);
   ctx.beginPath();
   ctx.moveTo(canvas.width/2,150);
   ctx.arc(canvas.width/2,150,50,Math.PI/2-rad/2,rad/2+Math.PI/2);
+  ctx.lineTo(canvas.width/2,150);
+  ctx.fillStyle = "#FFFFFF";
+  ctx.fill();
+  */
+  var r = (score/(255/15))*50;
+  ctx.beginPath();
+  ctx.moveTo(canvas.width/2,150);
+  ctx.arc(canvas.width/2,150,r,0,2*Math.PI);
   ctx.lineTo(canvas.width/2,150);
   ctx.fillStyle = "#FFFFFF";
   ctx.fill();
